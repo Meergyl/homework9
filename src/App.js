@@ -1,41 +1,44 @@
 
+import React, { Component, useEffect, useState } from "react";
+import "./App.css";
+import Todos from './components/Todos';
 
-import { useState } from 'react';
-import './App.css';
-import AddText from './components/AddText';
-import ItemBox from './components/ItemBox';
+class App extends Component {
 
-const expense = [{
-}]
-
-
-
-
-function App() {
-  const [data,setData] = useState(expense)
-  const  dataHandler = (enteredData) => {
-    console.log(enteredData);
-    setData((prevState ) => [...prevState,enteredData])
-    console.log(enteredData);
+  render() {
+    return (
+      <div className="container">
+        <h1 className="text-center">ToDo App in ReactJS</h1>
+        <Todos />
+      </div>
+    );
   }
-
-  return (
-    <div className='App'>
-        <AddText onDataHandler ={dataHandler}/>
-      {data.map((el) => {
-        return(
-          <ItemBox
-          
-          text = {el.text}
-          date ={el.date}
-           /> 
-         
-        )
-
-      })}
-    </div>
-   
-  );
 }
 
 export default App;
+
+
+
+
+
+
+
+  // // const[type,setType]=useState("users")
+  // // const[data,setData]=useState([])
+  // // useEffect(()=>{
+  // //   fetch(`https://jsonplaceholder.typicode.com/${type}`)
+  // // .then(response => response.json())
+  // // .then(json =>setData(json))
+    
+
+  // // },[type])
+  // // useEffect(()=>{
+  // //     console.log("ComponentDidMount",[])
+  // // })
+ 
+ 
+  //     {/* <h1>Resyrs:{type}</h1>
+  //     <button onClick={()=>setType("users")}>Пользователи</button>
+  //     <button  onClick={()=>setType("todos")}>Todo</button>
+  //     <button  onClick={()=>setType("posts")}>Посты</button>
+  //     <pre>{JSON.stringify(data,null,2)}</pre> */}
